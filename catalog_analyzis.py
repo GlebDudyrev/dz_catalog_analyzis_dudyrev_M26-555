@@ -250,3 +250,32 @@ def used_iter_high_rated(movies):
 
 def total_duration(movies):
     return sum(m["duration_min"] for m in movies if m["rating"] > 7)
+
+
+def build_report(movies):
+    print('ОТЧЕТ ПО КАТАЛОГУ')
+
+    print(f'Средний рейтинг: {average_rating(movies)}')
+    print(f'Средний возраст фильмов: {catalog_age_stats(movies)[-1]} лет') 
+
+    print()
+
+    print('Топ-3 фильма:')
+    top_by_rating = sorted(movies, key=lambda movie: movie['rating'], reverse=True)[:3]
+    for movie in top_by_rating:
+        print(f'  {format_report_line(movie)}')
+
+    print()
+
+    print('Фильмов по жанрам:')
+    for genre, count in count_by_genre(movies).items():
+        print(f'  {genre} - {count}')
+
+    print()
+
+    print(f'Все жанры каталога: {', '.join(all_genres(movies))}')
+
+
+if __name__ == '__main__':
+    build_report(movies)
+
