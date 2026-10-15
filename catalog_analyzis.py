@@ -153,3 +153,27 @@ def count_long_movies(movies, threshold=120):
     return count
 
 
+def normalize_title(title):
+    words = title.split()
+
+    normalized_words = []
+    for word in words:
+        norm_word = word[0].upper() + word[1:]
+
+        normalized_words.append(norm_word)
+
+    return ' '.join(normalized_words)
+
+
+def make_slug(title):
+    return title.lower().replace(' ', '-')
+
+
+def format_report_line(movie):
+    normalized_title = normalize_title(movie['title'])
+    duration = duration_in_hours(movie['duration_min'])
+    sorted_genres = ', '.join(sorted(movie['genres']))
+
+    return f'"{normalized_title}" ({movie['year']}) - {movie['rating']}/10, {duration}, жанры: {sorted_genres}'  # noqa
+
+
