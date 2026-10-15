@@ -174,7 +174,11 @@ def format_report_line(movie):
     duration = duration_in_hours(movie['duration_min'])
     sorted_genres = ', '.join(sorted(movie['genres']))
 
-    return f'"{normalized_title}" ({movie['year']}) - {movie['rating']}/10, {duration}, жанры: {sorted_genres}'  # noqa
+    return (
+        f'"{normalized_title}" ({movie["year"]}) — '
+        f'{movie["rating"]}/10, {duration}, '
+        f'жанры: {sorted_genres}'
+    )
 
 
 def titles_sorted_by_rating(movies):
