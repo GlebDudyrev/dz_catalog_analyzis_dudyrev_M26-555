@@ -177,3 +177,15 @@ def format_report_line(movie):
     return f'"{normalized_title}" ({movie['year']}) - {movie['rating']}/10, {duration}, жанры: {sorted_genres}'  # noqa
 
 
+def titles_sorted_by_rating(movies):
+    movies_sorted_reversed = sorted(movies, key=lambda movie: movie['rating'], reverse=True)
+
+    return [movie['title'] for movie in movies_sorted_reversed]
+
+
+def top_n_by_rating(movies, n=3):
+    top_n_movies = sorted(movies, key=lambda movie: movie['rating'], reverse=True)[:n]
+
+    return [(movie['title'], movie['rating']) for movie in top_n_movies]
+
+
