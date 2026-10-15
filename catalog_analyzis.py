@@ -123,7 +123,7 @@ def decade_label(year):
 
 def print_non_comedy_titles(movies):
     for movie in movies:
-        if movie['genres'] == 'comedy':
+        if 'comedy' in movie['genres']:
             continue
 
         print(movie['title'])
