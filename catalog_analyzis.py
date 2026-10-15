@@ -178,7 +178,11 @@ def format_report_line(movie):
 
 
 def titles_sorted_by_rating(movies):
-    movies_sorted_reversed = sorted(movies, key=lambda movie: movie['rating'], reverse=True)
+    movies_sorted_reversed = sorted(
+        movies,
+        key=lambda movie: movie['rating'],
+        reverse=True
+    )
 
     return [movie['title'] for movie in movies_sorted_reversed]
 
