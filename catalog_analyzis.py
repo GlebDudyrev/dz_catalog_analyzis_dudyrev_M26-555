@@ -290,7 +290,7 @@ def build_report(movies):
 
     print()
 
-    print(f'Все жанры каталога: {', '.join(all_genres(movies))}')
+    print(f"Все жанры каталога: {', '.join(sorted(all_genres(movies)))}")
 
 
 if __name__ == '__main__':
