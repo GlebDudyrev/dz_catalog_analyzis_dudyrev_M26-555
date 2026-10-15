@@ -217,10 +217,12 @@ def actor_filmography(movies):
 
 
 def rating_by_title(movies):
+    avg = average_rating(movies)
+
     return {
         movie['title']: movie['rating']
         for movie in movies
-        if movie['rating'] > average_rating(movies)
+        if movie['rating'] > avg
     }
 
 
